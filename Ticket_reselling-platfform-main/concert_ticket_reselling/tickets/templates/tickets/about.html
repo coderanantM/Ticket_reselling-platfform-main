@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ticket Reselling Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+        }
+        .about-section {
+            background-color: #ffffff;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            max-width: 900px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .creator-images img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .creator-images img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .creator-section {
+            text-align: center;
+        }
+        .creator-names {
+            font-weight: bold;
+            margin-top: 10px;
+    
+        }
+    </style>
+</head>
+<body>
+
+    {% load static %}  <!-- Add this line to load static files -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Ticket Reselling Platform</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <h2 class="text-center mb-4">About Us</h2>
+        <p>
+            Welcome to the <strong>Official Ticket Reselling Platform</strong> exclusively designed for BITS students. This platform allows students to list and resell tickets for concerts, plays, sports, and other events.
+        </p>
+        <p>
+            Our mission is to make ticket reselling simple, secure, and spam-free. Say goodbye to the chaos of WhatsApp groups and enjoy a seamless experience tailored for the BITS community.
+        </p>
+
+        <!-- Features Section -->
+        <div class="mt-5">
+            <h4 class="text-center mb-3">Why Choose Us?</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">✅ Easy-to-use platform for ticket reselling.</li>
+                <li class="list-group-item">✅ Verified users ensure a safe experience.</li>
+                <li class="list-group-item">✅ Streamlined process for faster transactions.</li>
+                <li class="list-group-item">✅ Tailored exclusively for BITS students.</li>
+            </ul>
+        </div>
+
+        <!-- Creators Section -->
+        <div class="creator-section mt-5">
+            <h4 class="text-center mb-3">Meet the Creators</h4>
+            <div class="creator-images d-flex justify-content-center">
+                <div class="text-center">
+                    <img src="{% static 'tickets/images/re.png' %}" alt="Anant">
+                    <p>Manas</p>
+                    
+                </div>
+                <div class="text-center">
+                    <img src="{% static 'tickets/images/image.png' %}" alt="Anant">  <!-- Use static path -->
+                    <p>Anant </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Ticket Reselling Platform. All rights reserved. <a href="{% url 'home' %}">Home</a></p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
