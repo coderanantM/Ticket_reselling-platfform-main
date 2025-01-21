@@ -26,6 +26,9 @@
             background-color: #b20710;
             border-color: #b20710;
         }
+        .text-center {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -42,7 +45,7 @@
     </div>
 
     <div class="text-center mt-3">
-        <p>Already have an account? <a href="{% url 'seller_login' %}" class="btn btn-link">Sign In</a></p>
+        <p>Already have an account? <a href="{% url 'login_and_redirect_to_create_ticket' %}" class="btn btn-link">Sign In</a></p>
     </div>
     
 

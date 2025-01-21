@@ -10,6 +10,7 @@ class Ticket(models.Model):
     seller_name = models.CharField(max_length=255, null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)  # New field
     category = models.CharField(max_length=50, null=True, blank=True)
+    status = models.CharField(max_length=10, choices=[('sold', 'Sold'), ('unsold', 'Unsold')])
     
     def __str__(self):
         return f"{self.event_name} - {self.event_date} (Seller: {self.seller.username})"
