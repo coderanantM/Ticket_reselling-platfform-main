@@ -7,6 +7,11 @@ from .models import Ticket, SellerProfile, AdminSettings
 from .forms import TicketForm, SellerRegistrationForm
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
+from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
 
 def home(request):
     tickets = Ticket.objects.all()
@@ -141,4 +146,15 @@ def seller_login(request):
 def about(request):
     return render(request, 'tickets/about.html')
 
+class CustomPasswordResetView(SuccessMessageMixin, FormView):
+    template_name = 'registration/password_reset.html'
+    form_class = PasswordResetForm
+    success_url = reverse_lazy('password_reset_done')
+    success_message = "If the email exists, a reset link has been sent."
 
+    def form_valid(self, form):
+        email = form.cleaned_data.get('email')
+        if not User.objects.filter(email=email).exists():
+            form.add_error('email', 'User with this email address is not registered. Please register first.')
+            return self.form_invalid(form)
+        return super().form_valid(form)
